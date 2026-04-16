@@ -7,6 +7,7 @@ on:
 
 jobs:
   compile:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -38,8 +39,6 @@ jobs:
 
       # TODO 01 - Add a step to run tests
       - name: Run tests
-        run: go test ./...
+        run: go test main_test.go
 
-  compile:
-    needs[test]
-    # TODO 02 - Make sure that the `test` job is run before `compile`
+
